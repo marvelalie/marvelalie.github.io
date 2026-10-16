@@ -765,3 +765,16 @@ body { font-family: "Inter Tight", system-ui, sans-serif; font-weight: 400; colo
 .launch { min-height: 220px; }
 .launch .launch-link { margin-top: auto; }
 @media (max-width: 600px) { .links { gap: 8px; } .links .label { width: 100%; } }
+/* round 6: mobile fixes */
+.proj-cars > div { min-width: 0; }
+@media (max-width: 900px) {
+  .menu { background: #2a1a12 !important; border-bottom: 1px solid var(--line); }
+  .menu > a:not(.btn):not(.icon-btn) { color: #f3e8d6 !important; border-bottom-color: rgba(243,232,214,.12) !important; }
+  .menu .icon-btn { color: #f3e8d6; }
+}
+@media (max-width: 600px) {
+  .intro .worked { display: block; }
+  .intro .worked .worked-k { display: block; margin: 0 0 12px; }
+  .intro .worked .marquee { width: 100%; }
+  .feed img { max-height: none; }
+}
