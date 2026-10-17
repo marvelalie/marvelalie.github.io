@@ -811,3 +811,20 @@ body { font-family: "Inter Tight", system-ui, sans-serif; font-weight: 400; colo
 .label, .programme-k { color: #d8c6b1 !important; }
 
 .impact > div, .promo li, .launch { transition: border-color .3s ease; }
+
+/* round 9: hero entrance, scroll progress, active nav */
+.nav { position: sticky; }
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 1.5px; background: #e2b07a; transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
+.menu > a.on:not(.btn):not(.icon-btn) { color: #f3e8d6; }
+.menu > a.on:not(.btn):not(.icon-btn)::after { transform: scaleX(1); }
+@keyframes rise { from { opacity: 0; transform: translate3d(0,14px,0); } to { opacity: 1; transform: none; } }
+@keyframes dot { 0% { opacity: 0; transform: scale(.2); } 70% { opacity: 1; transform: scale(1.25); } 100% { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero .role, .hero h1, .hero-line { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
+  .hero h1 { animation-delay: .12s; }
+  .hero-line { animation-delay: .28s; }
+  .hero h1 .dot { display: inline-block; animation: dot .7s cubic-bezier(.22,1,.36,1) .75s both; }
+  .launch-link, .job-co a { transition: color .2s, letter-spacing .3s; }
+  .launch-link:hover { letter-spacing: .01em; }
+}
+@media (max-width: 900px) { .progress { bottom: 0; } }
