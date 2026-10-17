@@ -828,9 +828,3 @@ body { font-family: "Inter Tight", system-ui, sans-serif; font-weight: 400; colo
   .launch-link:hover { letter-spacing: .01em; }
 }
 @media (max-width: 900px) { .progress { bottom: 0; } }
-
-/* round 11: phone captions on one even line */
-.phones .phone { min-width: 0; flex: 0 0 calc((100% - 24px) / 3); }
-.phones .phone figcaption { text-align: center; color: #f3e8d6; font-size: .88rem; line-height: 1.4; margin-top: 12px; }
-.phones .phone figcaption .ph-k { display: block; font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: #e2b07a; margin-bottom: 4px; }
-@media (max-width: 900px) { .phones .phone { flex-basis: 46%; } }
