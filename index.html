@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -63,7 +63,7 @@
       <a href="#contact">Contact</a>
       <span class="menu-sep" aria-hidden="true"></span>
       <a class="icon-btn" href="https://www.linkedin.com/in/marvelarusly/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#si-linkedin"/></svg><span class="icon-label">LinkedIn</span></a>
-      <a class="btn btn-dark btn-sm" href="https://drive.google.com/file/d/1dVqyw9golPBURWvfY6NvTKiIAPM4l5bG/view?usp=sharing" target="_blank" rel="noopener"><svg class="btn-ic"><use href="#i-down"/></svg>CV</a>
+      <a class="btn btn-dark btn-sm" href="https://drive.google.com/file/d/1ZQbZl5pigATwOoCZvLQk5r1AhDnB4sYM/view?usp=share_link" target="_blank" rel="noopener"><svg class="btn-ic"><use href="#i-down"/></svg>CV</a>
     </nav>
   </div>
 </header>
@@ -183,9 +183,9 @@
           <li>Supported live operations with the tech team and MCs: speaker arrivals, backstage and timing.</li>
         </ul>
         <div class="impact">
-          <div><b>320+</b><span>C-level speakers</span></div>
-          <div><b>80+</b><span>sessions</span></div>
-          <div><b>15K+</b><span>attendees</span></div>
+          <div><b data-count="320" data-suffix="+">320+</b><span>C-level speakers</span></div>
+          <div><b data-count="80" data-suffix="+">80+</b><span>sessions</span></div>
+          <div><b data-count="15" data-suffix="K+">15K+</b><span>attendees</span></div>
         </div>
       </div>
 
@@ -237,7 +237,7 @@
     <!-- Mercure Digital -->
     <article class="job">
       <header class="job-head">
-        <span class="job-logo"><img src="images/logos/mercure-red-c.png" alt=""></span>
+        <span class="job-logo"><img src="images/logos/mercure-head.png" alt=""></span>
         <div class="job-title">
           <h3>PR &amp; Events Director’s Assistant</h3>
           <p class="job-co"><a href="https://mercure.digital/ils-nous-font-confiance/index.html" target="_blank" rel="noopener">Mercure Digital ↗</a> <i>·</i> PR &amp; events agency</p>
@@ -254,9 +254,9 @@
           <li>Scouted <strong>20+ demo locations</strong> for a Segway Navimow partner campaign.</li>
         </ul>
         <div class="impact">
-          <div><b>229</b><span>journalists &amp; influencers</span></div>
-          <div><b>20+</b><span>demo locations scouted</span></div>
-          <div><b>2</b><span>launches</span></div>
+          <div><b data-count="229">229</b><span>journalists &amp; influencers</span></div>
+          <div><b data-count="20" data-suffix="+">20+</b><span>demo locations scouted</span></div>
+          <div><b data-count="2">2</b><span>launches</span></div>
         </div>
       </div>
 
@@ -316,9 +316,9 @@
           <p class="label">How an event was promoted</p>
           <ol>
             <li><b>Teaser</b><span>Poster and caption, shared online and on campus</span></li>
-            <li><b>Reminder</b><span>Stories and countdown on the day</span></li>
-            <li><b>Live</b><span>Stories from the venue</span></li>
-            <li><b>Recap</b><span>Short video of the best moments</span></li>
+            <li><b>Reminder</b><span>Countdown and key details posted on the day</span></li>
+            <li><b>Live</b><span>Real-time moments shared from the venue</span></li>
+            <li><b>Recap</b><span>A highlight video to close the event</span></li>
           </ol>
         </div>
         </div>
@@ -461,7 +461,7 @@
         var el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null;
         function step(t) {
           if (!t0) t0 = t;
-          var p = Math.min((t - t0) / 1600, 1), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          var p = Math.min((t - t0) / 1800, 1), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
           el.textContent = v + (p === 1 ? suf : '');
           if (p < 1) requestAnimationFrame(step);
         }
@@ -469,7 +469,11 @@
       });
     }, { threshold: .6 });
     nums.forEach(function (n) { io.observe(n); });
-    var rv = document.querySelectorAll('.strength, .about, .job, .proj, .contact');
+    document.querySelectorAll('.impact, .promo ol, .proj-cars, .kw, .tk-grid, .launches').forEach(function (g) {
+      g.classList.add('stagger');
+      Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); });
+    });
+    var rv = document.querySelectorAll('.strength, .about, .job, .proj-head, .stagger, .contact, .section-title');
     document.documentElement.classList.add('js-reveal');
     var ro = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
