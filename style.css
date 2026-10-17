@@ -829,26 +829,8 @@ body { font-family: "Inter Tight", system-ui, sans-serif; font-weight: 400; colo
 }
 @media (max-width: 900px) { .progress { bottom: 0; } }
 
-/* round 10: reels play like short videos */
-.ph { position: relative; }
-.ph > img { display: block; }
-.ph-screen { position: absolute; top: 3.3%; bottom: 2.85%; left: 6.2%; right: 5.95%; overflow: hidden; border-radius: 10% / 4.8%; background: #000; transform: translateZ(0); }
-.ph-screen img { position: absolute; width: 114% !important; height: 106.6% !important; max-width: none; left: -7.05%; top: -3.5%; aspect-ratio: auto !important; object-fit: fill !important; transform-origin: 50% 40%; will-change: transform; }
-.ph-screen::after { content: ""; position: absolute; top: 0; left: 21.5%; width: 57%; height: 3.6%; background: #000; border-radius: 0 0 14px 14px; }
-.ph-bar { position: absolute; left: 7%; right: 7%; bottom: 2.6%; height: 2px; border-radius: 2px; background: rgba(255,255,255,.3); overflow: hidden; z-index: 1; }
-.ph-bar i { position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: 0 50%; }
-@keyframes kb1 { from { transform: scale(1.02) translate3d(0,0,0); } to { transform: scale(1.14) translate3d(-2%,-1.5%,0); } }
-@keyframes kb2 { from { transform: scale(1.14) translate3d(2%,1%,0); } to { transform: scale(1.02) translate3d(0,0,0); } }
-@keyframes kb3 { from { transform: scale(1.04) translate3d(2%,0,0); } to { transform: scale(1.12) translate3d(-2%,-2%,0); } }
-@keyframes bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@media (prefers-reduced-motion: no-preference) {
-  .ph-screen img { animation: kb1 9s ease-in-out infinite alternate paused; }
-  .m2 .ph-screen img, .m5 .ph-screen img, .m8 .ph-screen img { animation-name: kb2; animation-duration: 10s; }
-  .m3 .ph-screen img, .m6 .ph-screen img { animation-name: kb3; animation-duration: 11s; }
-  .ph-bar i { animation: bar 9s linear infinite paused; }
-  .m2 .ph-bar i, .m5 .ph-bar i, .m8 .ph-bar i { animation-duration: 10s; }
-  .m3 .ph-bar i, .m6 .ph-bar i { animation-duration: 11s; }
-  .ph.play .ph-screen img, .ph.play .ph-bar i { animation-play-state: running; }
-}
-.phone figcaption a { display: block; margin-top: 4px; color: #e2b07a; text-decoration: none; font-size: .82rem; }
-.phone figcaption a:hover { text-decoration: underline; text-underline-offset: 3px; }
+/* round 11: phone captions on one even line */
+.phones .phone { min-width: 0; flex: 0 0 calc((100% - 24px) / 3); }
+.phones .phone figcaption { text-align: center; color: #f3e8d6; font-size: .88rem; line-height: 1.4; margin-top: 12px; }
+.phones .phone figcaption .ph-k { display: block; font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: #e2b07a; margin-bottom: 4px; }
+@media (max-width: 900px) { .phones .phone { flex-basis: 46%; } }
