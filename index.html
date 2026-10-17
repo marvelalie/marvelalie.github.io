@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -473,7 +473,7 @@
       g.classList.add('stagger');
       Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); });
     });
-    var rv = document.querySelectorAll('.strength, .about, .job, .proj-head, .stagger, .contact, .section-title');
+    var rv = document.querySelectorAll('.strength, .about-k, .about-text > *, .cred-cols, .job-head, .did, .proof > .label, .guide, .proj-head, .stagger, .contact .wrap > *, .section-title');
     document.documentElement.classList.add('js-reveal');
     var ro = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
